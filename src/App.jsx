@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './page/home'
-import Movies from './page/movies'
+import ContactForm from './components/ContactForm'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
@@ -11,8 +11,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        {/* más rutas aquí */}
+        <Route path="Contact" element={<ContactForm />} />
       </Routes>
 
       <Footer />

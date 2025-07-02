@@ -1,9 +1,25 @@
+import { useState, useEffect } from 'react';
+import { getMovies } from '../services/movies.service';
+import CardList from "../components/CardList";
+
 function Home() {
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() => {
+        const fetchMovies = async () => {
+            const moviesData = await getMovies();
+            setMovies(moviesData);
+        };
+        fetchMovies();
+    }, []);
+
     return (
-        <div>
-            <h1>Welcome to the Movie App</h1>
-            <p>Explore the latest movies and find your favorites!</p>
-        </div>  
+        <section className="bg-dark text-white py-5">
+            <div className="container">
+                <h2>Hola Mundo</h2>
+                <CardList movies={movies} />
+            </div>
+        </section>
     )
 }
 
