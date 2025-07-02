@@ -8,13 +8,16 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// Servir estáticos
-app.use(express.static(path.join(__dirname, "dist"))); // Vite por defecto genera /dist
+// 1) Servir los archivos estáticos de `dist/`
+app.use(express.static(path.join(__dirname, "dist")));
 
-// Fallback a index.html
-app.get("/*", (req, res) => {
+// 2) Fallback “catch-all” para React Router
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
+// 3) Levantar el servidor en el puerto que Render asigne
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en puerto ${PORT}`);
+});
