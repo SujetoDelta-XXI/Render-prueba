@@ -1,8 +1,8 @@
+import { useState, useEffect } from 'react';
+import { getMovies } from '../services/movies.service';
 import CardList from "../components/CardList";
-import { getMovies } from "../services/movies.service";
-import { useEffect, useState } from "react";
 
-const Home = () => {
+const Movies = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -23,4 +23,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Movies;
