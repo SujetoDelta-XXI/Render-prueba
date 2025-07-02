@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './page/Home'
-import Movies from './page/Movies'
+import Home from './page/home'
+import Movies from './page/movies'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
